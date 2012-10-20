@@ -79,15 +79,13 @@
 		    }
 		});
 
-		var anotherGeojsonLayer = new L.GeoJSON(fsWifi, {
+		var wifiJSON = new L.GeoJSON(fsWifi, {
 		    pointToLayer: function (latlng){
 		        return new L.Marker(latlng, {
 		            icon: new WifiIcon()
 		        });
 		    }
 		});
-
-		var lightRailGeojsonLayer = new L.GeoJSON();
 
 		geojsonLayer.on("featureparse", function (e) {
 		    var popupContent = "";
@@ -103,7 +101,7 @@
 		    }
 		});
 
-		anotherGeojsonLayer.on("featureparse", function (e) {
+		wifiJSON.on("featureparse", function (e) {
 		    var popupContent = "<p></p>";
 		    popupContent += "<p></p>";
 		    if (e.properties && e.properties.popupContent) {
@@ -113,9 +111,10 @@
 		});
 
 
-		map.addLayer(anotherGeojsonLayer);
+		map.addLayer(wifiJSON);
 
-		anotherGeojsonLayer.addGeoJSON(fsWifi);
+		wifiJSON.addGeoJSON(fsWifi);
+		wifiJSON.addGeoJSON(converted_json);
 			
 		}
 
