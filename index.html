@@ -7,6 +7,12 @@
 		<title>Sukey.io: Map</title>
 		<link rel="stylesheet" href="../css/master.css" type="text/css" media="screen" title="no title" charset="utf-8">
 		<script type="text/javascript" src="../js/jquery-1.4.4.js"></script>
+		<script type="text/javascript" src="../js/ticker-1.2.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				getTickerRSS();
+			});
+		</script>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.3.1/leaflet.css" />
     <!--[if lte IE 8]>
@@ -29,7 +35,7 @@
 
 <body onload="init()">
 	<div id="container" align="left">
-		<div id="ticker">Sukey v.3.0, the web app that keeps demonstrators safe, mobile and informed, goes live at 11am in solidarity with London's #Oct20 anti-austerity march.</div>
+		<div id="ticker"></div>
 	</div>
 	<div id="sukey" onclick="location.href='http://sukey.org/io/webapp/';"></div>
 	<div id="map"></div>
